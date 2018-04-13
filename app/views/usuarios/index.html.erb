@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <% @usuarios.each do |usuario| %>
+  <div class="container-home">
+    <table width="650" >
+      <tbody>
+        <tr>
+          <td valign="middle" width="130">
+            <img width="130" src="http://image.ibb.co/gjQ1j7/Logo_Mutual.png" alt="logo mutual">
+          </td>
+          <td valign="middle" width="20"></td>
+          <td valign="middle" width="250">
+            <p>
+              <!-- modificar la información de cada usuario acá. -->
+              <strong style="font-size:15px;color:#333333;"><%= usuario.nombre %></strong><br>
+              <span style="font-size:13px;color:#203747;"><%= usuario.cargo %></span><br>
+              <small style="font-size:15px;color:#0066cc"><%= usuario.telefono %></small><br>
+              <small style="font-size:14px;color:#7a828d"><%= usuario.direccion %></small><br>
+              <a style="vertical-align:top;color:#005cb9;text-decoration:none;" href="http://www.mutualdeseguros.cl" title="visitanos" target="_blank">www.mutualdeseguros.cl</a>
+              <!-- modificar la información de cada usuario acá. -->
+            </p>
+          </td>
+          <td valign="middle" width="1"><img src="https://image.ibb.co/jxYygG/skitched_20171001_202657.jpg" height="150px" /></td>
+          <td valign="middle" width="180">
+            <img width="178" src="https://image.ibb.co/nmu45b/skitched_20171001_174841.jpg">
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+    <tr>
+    <div class="botonera">
+      <%= link_to 'Ver', usuario, class: "see" %>
+      <%= link_to 'Eliminar', usuario, method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy" %>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<br>
+
+<%= link_to 'Crear Firma', new_usuario_path, class: "new" %>

@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="input">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style media="screen">
+    @media screen {
+      body {
+        font-family: Arial, Sans-Serif;
+      }
+    }
+    </style>
+    <table width="650">
+      <tbody>
+        <tr>
+          <td valign="middle" width="130">
+            <img width="130" src="http://image.ibb.co/gjQ1j7/Logo_Mutual.png" alt="logo mutual">
+          </td>
+          <td valign="middle" width="20"></td>
+          <td valign="middle" width="250">
+            <p>
+              <strong style="font-size:15px;color:#333333;"><%= @usuario.nombre %></strong><br>
+              <span style="font-size:13px;color:#203747;"><%= @usuario.cargo %></span><br>
+              <small style="font-size:15px;color:#0066cc"><%= @usuario.telefono %></small><br>
+              <small style="font-size:14px;color:#7a828d"><%= @usuario.direccion %></small><br>
+              <a style="vertical-align:top;color:#005cb9;text-decoration:none;" href="http://www.mutualdeseguros.cl" title="visitanos" target="_blank">www.mutualdeseguros.cl</a>
+            </p>
+          </td>
+          <td valign="middle" width="1"><img src="https://image.ibb.co/jxYygG/skitched_20171001_202657.jpg" height="150px" /></td>
+          <td valign="middle" width="180">
+            <img width="230" src="http://image.ibb.co/caWDxS/Logo_Somos_Mutual.png">
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>Copia este texto</h3>
+
+  <pre><code class="html output"></code></pre>
+  <div class="botonera">
+    <%= link_to 'Volver al inicio', usuarios_path, class: "volver" %>
+    <%= link_to 'Editar', edit_usuario_path(@usuario), class: "destroy" %>
+  </div>
+</div>
+
+
+<script type="text/javascript" async>
+  Turbolinks.clearCache();
+  function clearPage(){
+    var container = $('.input');
+    //console.log(container[0].innerHTML);
+    str = container[0].innerHTML;
+    //parse = $.parseHTML( str );
+    $('.output').text(str);
+  }
+  clearPage();
+</script>

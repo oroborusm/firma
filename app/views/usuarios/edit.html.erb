@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Editar Firma</h1>
+
+  <%= render 'form', usuario: @usuario %>
+  <hr>
+  <div class="botonera">
+    <%= link_to 'Volver al inicio', usuarios_path, class: "volver" %>
+    <%= link_to 'Volver a la Firma', @usuario, class: "volver" %>
+  </div>
+</div>
