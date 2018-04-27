@@ -1,43 +1,76 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container">
-  <% @usuarios.each do |usuario| %>
-  <div class="container-home">
-    <table width="650" >
-      <tbody>
-        <tr>
-          <td valign="middle" width="130">
-            <img width="130" src="http://image.ibb.co/gjQ1j7/Logo_Mutual.png" alt="logo mutual">
-          </td>
-          <td valign="middle" width="20"></td>
-          <td valign="middle" width="250">
-            <p>
-              <!-- modificar la información de cada usuario acá. -->
-              <strong style="font-size:15px;color:#333333;"><%= usuario.nombre %></strong><br>
-              <span style="font-size:13px;color:#203747;"><%= usuario.cargo %></span><br>
-              <small style="font-size:15px;color:#0066cc"><%= usuario.telefono %></small><br>
-              <small style="font-size:14px;color:#7a828d"><%= usuario.direccion %></small><br>
-              <a style="vertical-align:top;color:#005cb9;text-decoration:none;" href="http://www.mutualdeseguros.cl" title="visitanos" target="_blank">www.mutualdeseguros.cl</a>
-              <!-- modificar la información de cada usuario acá. -->
-            </p>
-          </td>
-          <td valign="middle" width="1"><img src="https://image.ibb.co/jxYygG/skitched_20171001_202657.jpg" height="150px" /></td>
-          <td valign="middle" width="180">
-            <img width="178" src="https://image.ibb.co/nmu45b/skitched_20171001_174841.jpg">
-          </td>
-
-        </tr>
-      </tbody>
-    </table>
-    <tr>
-    <div class="botonera">
-      <%= link_to 'Ver', usuario, class: "see" %>
-      <%= link_to 'Eliminar', usuario, method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy" %>
-    </div>
+<div class="container row">
+  <div class="col-md-6">
+    <h2>Importa Firmas</h2>
+    <%= form_tag import_usuarios_path, multipart: true do %>
+      <div class="input-group">
+        <div class="custom-file">
+          <%= file_field_tag :file, class: "custom-file-input", id: "inputGroupFile04" %>
+          <%= label_tag :file, class: "custom-file-label", id: "inputGroupFile04" do %>
+          Seleccione un excel
+          <% end %>
+        </div>
+        <div class="input-group-append">
+          <%= submit_tag "Import", class: "btn bg-success text-white" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-  <% end %>
+  <div class="col-md-1"></div>
+  <div class="col-md-5">
+    <h2>Descarga Firmas</h2>
+    <%= link_to "Descarga Excel", usuarios_path(format: "csv"), class: "btn btn-primary" %>
+  </div>
+</div>
+<br>
+
+<div class="container">
+  <div class="row">
+    <% @usuarios.each do |usuario| %>
+    <div class="col-md-6 item">
+      <table width="600" >
+        <tbody>
+          <tr>
+            <td valign="middle" width="130">
+              <img width="130" src="http://image.ibb.co/gjQ1j7/Logo_Mutual.png" alt="logo mutual">
+            </td>
+            <td valign="middle" width="20"></td>
+            <td valign="middle" width="250">
+              <p>
+                <!-- modificar la información de cada usuario acá. -->
+                <strong class="data-nombre" style="font-size:15px;color:#333333;"><%= usuario.nombre %></strong><br>
+                <span class="data-cargo" style="font-size:13px;color:#203747;"><%= usuario.cargo %></span><br>
+                <small class="data-numero" style="font-size:15px;color:#0066cc"><%= usuario.telefono %></small><br>
+                <small class="data-direccion" style="font-size:14px;color:#7a828d"><%= usuario.direccion %></small><br>
+                <a class="url" style="vertical-align:top;color:#005cb9;text-decoration:none;" href="http://www.mutualdeseguros.cl" title="visitanos" target="_blank">www.mutualdeseguros.cl</a>
+                <!-- modificar la información de cada usuario acá. -->
+              </p>
+            </td>
+            <td valign="middle" width="1"><img src="https://image.ibb.co/jxYygG/skitched_20171001_202657.jpg" height="150px" /></td>
+            <td valign="middle" width="180">
+              <img width="178" src="https://image.ibb.co/nmu45b/skitched_20171001_174841.jpg">
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+      <tr>
+        <div class="botonera">
+          <%= link_to usuario, class: "see" do %>
+            <i class="material-icons">visibility</i>
+          <% end %>
+          <%= link_to usuario, method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy" do %>
+            <i class="material-icons">clear</i>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+  </div>
 </div>
 
 <br>
 
-<%= link_to 'Crear Firma', new_usuario_path, class: "new" %>
+<%= link_to new_usuario_path, class: "new" do %>
+  <i class="material-icons">add</i>
+<% end %>

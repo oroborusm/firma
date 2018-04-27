@@ -5,6 +5,12 @@ class UsuariosController < ApplicationController
   # GET /usuarios.json
   def index
     @usuarios = Usuario.all
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @usuarios.to_csv }
+      format.xls
+    end
   end
 
   # GET /usuarios/1
@@ -19,6 +25,12 @@ class UsuariosController < ApplicationController
 
   # GET /usuarios/1/edit
   def edit
+  end
+
+  def import
+    Usuario.import(params[:file])
+
+    redirect_to root_url, notice: 'Products imported.'
   end
 
   # POST /usuarios
@@ -69,6 +81,6 @@ class UsuariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def usuario_params
-      params.require(:usuario).permit(:nombre, :cargo, :telefono, :direccion)
+      params.require(:usuario).permit(:nombre, :cargo, :telefono, :direccion, :rut)
     end
 end

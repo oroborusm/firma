@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">Nombre</Data></Cell>
+        <Cell><Data ss:Type="String">Cargo</Data></Cell>
+        <Cell><Data ss:Type="String">Teléfono</Data></Cell>
+        <Cell><Data ss:Type="String">Dirección</Data></Cell>
+        <Cell><Data ss:Type="String">Rut</Data></Cell>
+      </Row>
+    <% @usuarios.each do |u| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= u.id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= u.nombre %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= u.cargo %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= u.telefono %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= u.direccion %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= u.rut %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

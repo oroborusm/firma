@@ -1,10 +1,15 @@
 <div class="container">
   <h1>Editar Firma</h1>
 
-  <%= render 'form', usuario: @usuario %>
-  <hr>
-  <div class="botonera">
-    <%= link_to 'Volver al inicio', usuarios_path, class: "volver" %>
-    <%= link_to 'Volver a la Firma', @usuario, class: "volver" %>
+  <div class="item row justify-content-md-center">
+    <%= render 'form', usuario: @usuario %>
+    <div class="botonera">
+      <%= link_to  @usuario, class: "volver" do %>
+        <i class="material-icons">keyboard_arrow_left</i>
+      <% end %>
+      <%= link_to root_path, class: "volver" do %>
+        <i class="material-icons">home</i>
+      <% end %>
+    </div>
   </div>
 </div>
