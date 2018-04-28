@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <div class="container row">
   <div class="col-md-6">
     <h2>Importa Firmas</h2>
@@ -12,7 +11,7 @@
           <% end %>
         </div>
         <div class="input-group-append">
-          <%= submit_tag "Import", class: "btn bg-success text-white" %>
+          <%= submit_tag "Importar", class: "btn bg-success text-white" %>
         </div>
       </div>
     <% end %>
@@ -23,7 +22,6 @@
     <%= link_to "Descarga Excel", usuarios_path(format: "csv"), class: "btn btn-primary" %>
   </div>
 </div>
-<br>
 
 <div class="container">
   <div class="row">
@@ -67,6 +65,10 @@
       </div>
       <% end %>
   </div>
+
+  <nav aria-label="Page navigation">
+      <%= will_paginate @posts %>
+  </nav>
 </div>
 
 <br>

@@ -23,7 +23,7 @@ header h1{
 }
 header a{
   display: block;
-  //margin-bottom: 16px;
+  margin-bottom: 16px;
   text-align: center;
 }
 header a svg{
@@ -186,6 +186,27 @@ pre{
 
 .new:hover{
   box-shadow: 0 0 16px 0 rgba(0,0,0, .4)
+}
+.pagination{
+  //display: block;
+  justify-content: center;
+  margin-top: 64px;
+  text-align: center;
+  a,
+  em,
+  span{
+    border: 1px solid #dee2e6;
+    //display: inline-block;
+    display: list-item;
+    margin: 0;
+    padding: 8px 16px;
+  }
+  .next_page{
+    border-radius: 0 4px 4px 0;
+  }
+  .previous_page{
+    border-radius: 4px 0 0 4px;
+  }
 }
 .url{
   color:#005DB4;

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'search/create'
+
   resources :usuarios do
     collection do
       post :import

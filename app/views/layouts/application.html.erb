@@ -16,7 +16,22 @@
   <body>
     <header>
       <%= render "layouts/logo" %>
+      <div class="container row justify-content-md-center">
+        <div class="col-md-6">
+          <%= form_tag "/search/create", method: :get, remote: true, id: "search-form",class: "form-inline" do %>
+            <div class="form-group col-md-10 col-sm-12">
+              <%= text_field_tag :keyword, nil, class: "form-control col-sm-12", placeholder: "Buscar"%>
+            </div>
+            <div class="col-md-2">
+              <%= content_tag :button, type: :submit, class: "btn btn-primary bg-success" do %>
+                Buscar
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </header>
+    <div id="resultados"></div>
     <br>
     <%= yield %>
   </body>
