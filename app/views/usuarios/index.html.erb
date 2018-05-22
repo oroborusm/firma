@@ -1,13 +1,13 @@
-<p id="notice"><%= notice %></p>
+
 <div class="container row">
   <div class="col-md-6">
     <h2>Importa Firmas</h2>
     <%= form_tag import_usuarios_path, multipart: true do %>
       <div class="input-group">
         <div class="custom-file">
-          <%= file_field_tag :file, class: "custom-file-input", id: "inputGroupFile04" %>
-          <%= label_tag :file, class: "custom-file-label", id: "inputGroupFile04" do %>
-          Seleccione un excel
+          <%= file_field_tag :file, class: "custom-file-input", id: "inputGroupFile" %>
+          <%= label_tag :file, class: "custom-file-label", id: "inputGroupFile" do %>
+            Seleccione un excel
           <% end %>
         </div>
         <div class="input-group-append">
@@ -19,7 +19,7 @@
   <div class="col-md-1"></div>
   <div class="col-md-5">
     <h2>Descarga Firmas</h2>
-    <%= link_to "Descarga Excel", usuarios_path(format: "csv"), class: "btn btn-primary" %>
+    <%= link_to "Descarga Excel", usuarios_path(format: "xlsx"), class: "btn btn-primary" %>
   </div>
 </div>
 
@@ -58,8 +58,10 @@
           <%= link_to usuario, class: "see" do %>
             <i class="material-icons">visibility</i>
           <% end %>
-          <%= link_to usuario, method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy" do %>
-            <i class="material-icons">clear</i>
+          <% if admin_signed_in?%>
+            <%= link_to usuario, method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy" do %>
+              <i class="material-icons">clear</i>
+            <% end %>
           <% end %>
         </div>
       </div>

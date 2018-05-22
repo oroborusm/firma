@@ -20,7 +20,7 @@
 
 
 $(document).on("turbolinks:load", function() {
-  $('#inputGroupFile04').on('change',function(){
+  $('#inputGroupFile').on('change',function(){
       //get the file name
       var fileName = $(this).val();
       //replace the "Choose a file" label

@@ -16,21 +16,31 @@
   <body>
     <header>
       <%= render "layouts/logo" %>
-      <div class="container row justify-content-md-center">
-        <div class="col-md-6">
-          <%= form_tag "/search/create", method: :get, remote: true, id: "search-form",class: "form-inline" do %>
-            <div class="form-group col-md-10 col-sm-12">
-              <%= text_field_tag :keyword, nil, class: "form-control col-sm-12", placeholder: "Buscar"%>
-            </div>
-            <div class="col-md-2">
-              <%= content_tag :button, type: :submit, class: "btn btn-primary bg-success" do %>
-                Buscar
-              <% end %>
-            </div>
+      <nav class="row justify-content-md-center">
+        <%= form_tag "/search/create", method: :get, remote: true, id: "search-form",class: "form-inline" do %>
+          <%= text_field_tag :keyword, nil, class: "form-control mr-sm-2", placeholder: "Buscar"%>
+          <%= content_tag :button, type: :submit, class: "btn btn-outline-success my-2 my-sm-0 bg-light" do %>
+            Buscar
           <% end %>
-        </div>
-      </div>
+        <% end %>
+      </nav>
+      <nav class="navbar justify-content-md-center">
+        <% if admin_signed_in?%>
+          <p class="text-light">
+            Bienvenido: <%= current_admin.email %>
+            <%= link_to "Cerrar sesión", destroy_admin_session_path, method: :delete,  class: "btn my-2 my-sm-0 text-light" %>
+          </p>
+        <% else %>
+          <%= link_to "Ingresa", new_admin_session_path, class: "btn btn-outline-success my-2 my-sm-0 bg-light" %>
+        <% end %>
+      </nav>
     </header>
+    <div style="<%= 'display:none;' if notice.nil? %>">
+      <p class="notice alert alert-primary" id="notice"><%= notice %></p>
+    </div>
+    <div style="<%= 'display:none;' if alert.nil? %>">
+      <p class="alert alert alert-danger" id="alert"><%= alert %></p>
+    </div>
     <div id="resultados"></div>
     <br>
     <%= yield %>

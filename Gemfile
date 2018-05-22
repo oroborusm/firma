@@ -37,8 +37,18 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails', '~> 4.3.1'
 
 gem 'bootstrap', '~> 4.0.0'
-gem 'roo'
+gem "roo", "~> 2.7.0"
+gem 'roo-xls'
 gem 'will_paginate'
+
+gem 'rubyzip', '>= 1.2.1'
+gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
+gem 'axlsx_rails', '0.3.0'
+
+#Auth
+gem 'devise'
+
+gem 'dotenv-rails', require: 'dotenv/rails-now'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

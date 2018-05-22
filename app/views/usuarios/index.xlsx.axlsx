@@ -1,0 +1,11 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Usuarios") do |sheet|
+  # this is the head row of your spreadsheet
+  sheet.add_row %w(id nombre cargo telefono direccion rut email)
+  
+  # each user is a row on your spreadsheet
+  @usuarios.each do |user|
+    sheet.add_row [user.id, user.nombre, user.cargo, user.telefono, user.direccion, user.rut, user.email]
+  end
+end

@@ -1,5 +1,6 @@
 class UsuariosController < ApplicationController
-  before_action :set_usuario, only: [:show, :edit, :update, :destroy]
+  before_action :set_usuario, only: [:show, :edit, :update, :destroy, :enviar]
+  before_action :authenticate_admin!, except: [:index, :show]
 
   # GET /usuarios
   # GET /usuarios.json
@@ -9,8 +10,12 @@ class UsuariosController < ApplicationController
     respond_to do |format|
       format.html
       format.csv { send_data @usuarios.to_csv }
-      format.xls
+      format.xlsx
     end
+  end
+
+  def enviar
+    FirmaEmailMailer.notify_firma(@usuario).deliver
   end
 
   # GET /usuarios/1
@@ -30,7 +35,7 @@ class UsuariosController < ApplicationController
   def import
     Usuario.import(params[:file])
 
-    redirect_to root_url, notice: 'Products imported.'
+    redirect_to root_url, notice: 'Firmas agregadas correctamente.'
   end
 
   # POST /usuarios
@@ -81,6 +86,6 @@ class UsuariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def usuario_params
-      params.require(:usuario).permit(:nombre, :cargo, :telefono, :direccion, :rut)
+      params.require(:usuario).permit(:nombre, :cargo, :telefono, :direccion, :rut, :email)
     end
 end
