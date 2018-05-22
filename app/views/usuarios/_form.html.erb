@@ -11,30 +11,24 @@
     </div>
   <% end %>
   <div class="row">
-    <div class="col-md-6">
-      <div class="input form-group">
-        <table width="650" >
-          <tbody>
-            <tr>
-              <td valign="middle" width="130">
-                <img width="130" src="http://image.ibb.co/gjQ1j7/Logo_Mutual.png" alt="logo mutual">
-              </td>
-              <td valign="middle" width="20"></td>
-              <td valign="middle" width="250">
-                <%= form.text_field :nombre, id: :usuario_nombre, placeholder: "Tu nombre y apellido", class: "input-form data-nombre" %>
-                <%= form.text_field :cargo, id: :usuario_cargo, placeholder: "Tu cargo", class: "input-form data-cargo" %>
-                <%= form.text_field :telefono, id: :usuario_telefono, placeholder: "Tu teléfono", class: "input-form data-numero" %>
-                <%= form.text_field :direccion, id: :usuario_direccion, placeholder: "Dirección de Oficina", class: "input-form data-direccion" %>
-                <p class="url">www.mutualdeseguros.cl</p>
-              </td>
-              <td valign="middle" width="1"><img src="https://image.ibb.co/jxYygG/skitched_20171001_202657.jpg" height="150px" /></td>
-              <td valign="middle" width="180">
-                <img width="230" src="https://image.ibb.co/nmu45b/skitched_20171001_174841.jpg">
-              </td>
-
-            </tr>
-          </tbody>
-        </table>
+    <div class="col-md-12">
+      <div class="input">
+        <div id="capture" class="capture">
+          <div class="logo">
+            <!-- <img width="130" src="http://image.ibb.co/gjQ1j7/Logo_Mutual.png" alt="logo mutual"> -->
+            <%= image_tag  "logo.png" %>
+          </div>
+          <div class="contenido">
+            <%= form.text_field :nombre, id: :usuario_nombre, placeholder: "Tu nombre y apellido", class: "input-form data-nombre" %>
+            <%= form.text_field :cargo, id: :usuario_cargo, placeholder: "Tu cargo", class: "input-form data-cargo" %>
+            <%= form.text_field :telefono, id: :usuario_telefono, placeholder: "Tu teléfono", class: "input-form data-numero" %>
+            <%= form.text_field :direccion, id: :usuario_direccion, placeholder: "Dirección de Oficina", class: "input-form data-direccion" %>
+            <a class="url" style="vertical-align:top;color:#005cb9;text-decoration:none;" href="http://www.mutualdeseguros.cl" title="visitanos" target="_blank">www.mutualdeseguros.cl</a>
+          </div>
+          <div class="somos">
+            <img src="http://image.ibb.co/caWDxS/Logo_Somos_Mutual.png">
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -1,31 +1,22 @@
-<div class="container row justify-content-md-center item">
+<div class="container row justify-content-md-center item p-5">
   <div class="col-md-6">
     <div class="input">
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-      <table width="650" id="capture">
-        <tbody>
-          <tr>
-            <td valign="middle" width="130">
-              <img width="130" src="http://image.ibb.co/gjQ1j7/Logo_Mutual.png" alt="logo mutual">
-            </td>
-            <td valign="middle" width="20"></td>
-            <td valign="middle" width="250">
-              <p>
-                <strong class="data-nombre" style="font-size:15px;color:#333333;font-weight:600;"><%= @usuario.nombre %></strong><br>
-                <span class="data-cargo" style="font-size:13px;color:#203747;"><%= @usuario.cargo %></span><br>
-                <small class="data-numero" style="font-size:15px;color:#0066cc"><%= @usuario.telefono %></small><br>
-                <small class="data-direccion" style="font-size:14px;color:#7a828d"><%= @usuario.direccion %></small><br>
-                <a class="url" style="vertical-align:top;color:#005cb9;text-decoration:none;" href="http://www.mutualdeseguros.cl" title="visitanos" target="_blank">www.mutualdeseguros.cl</a>
-              </p>
-            </td>
-            <td valign="middle" width="1"><img src="https://image.ibb.co/jxYygG/skitched_20171001_202657.jpg" height="150px" /></td>
-            <td valign="middle" width="180">
-              <img width="230" src="http://image.ibb.co/caWDxS/Logo_Somos_Mutual.png">
-            </td>
-
-          </tr>
-        </tbody>
-      </table>
+      <div id="capture" class="capture">
+        <div class="logo">
+          <!-- <img width="130" src="http://image.ibb.co/gjQ1j7/Logo_Mutual.png" alt="logo mutual"> -->
+          <%= image_tag  "logo.png" %>
+        </div>
+        <div class="contenido">
+          <p class="data-nombre" style="font-size:15px;color:#333333;font-weight:500;"><%= @usuario.nombre %></p>
+          <p class="data-cargo" style="font-size:13px;color:#203747;"><%= @usuario.cargo %></p>
+          <p class="data-numero" style="font-size:15px;color:#0066cc"><%= @usuario.telefono %></p>
+          <p class="data-direccion" style="font-size:14px;color:#7a828d"><%= @usuario.direccion %></p>
+          <a class="url" style="vertical-align:top;color:#005cb9;text-decoration:none;" href="http://www.mutualdeseguros.cl" title="visitanos" target="_blank">www.mutualdeseguros.cl</a>
+        </div>
+        <div class="somos">
+          <img src="http://image.ibb.co/caWDxS/Logo_Somos_Mutual.png">
+        </div>
+      </div>
     </div>
   </div>
   <div class="botonera">
@@ -94,8 +85,8 @@
       var img = canvas.toDataURL("image/jpg", 1.0);
       var image = new Image()
       image.src = img
-      image.width = 650;
-      image.height = 152;
+      image.width = 610;
+      //image.height = 107;
       $('#img-val').html(image)
       $('#img-val').attr("href", img)
     });

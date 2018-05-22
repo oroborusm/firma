@@ -1,4 +1,4 @@
-
+<% if admin_signed_in?%>
 <div class="container row">
   <div class="col-md-6">
     <h2>Importa Firmas</h2>
@@ -22,38 +22,30 @@
     <%= link_to "Descarga Excel", usuarios_path(format: "xlsx"), class: "btn btn-primary" %>
   </div>
 </div>
+<% end %>
 
 <div class="container">
   <div class="row">
     <% @usuarios.each do |usuario| %>
-    <div class="col-md-6 item">
-      <table width="600" >
-        <tbody>
-          <tr>
-            <td valign="middle" width="130">
-              <img width="130" src="http://image.ibb.co/gjQ1j7/Logo_Mutual.png" alt="logo mutual">
-            </td>
-            <td valign="middle" width="20"></td>
-            <td valign="middle" width="250">
-              <p>
-                <!-- modificar la información de cada usuario acá. -->
-                <strong class="data-nombre" style="font-size:15px;color:#333333;"><%= usuario.nombre %></strong><br>
-                <span class="data-cargo" style="font-size:13px;color:#203747;"><%= usuario.cargo %></span><br>
-                <small class="data-numero" style="font-size:15px;color:#0066cc"><%= usuario.telefono %></small><br>
-                <small class="data-direccion" style="font-size:14px;color:#7a828d"><%= usuario.direccion %></small><br>
-                <a class="url" style="vertical-align:top;color:#005cb9;text-decoration:none;" href="http://www.mutualdeseguros.cl" title="visitanos" target="_blank">www.mutualdeseguros.cl</a>
-                <!-- modificar la información de cada usuario acá. -->
-              </p>
-            </td>
-            <td valign="middle" width="1"><img src="https://image.ibb.co/jxYygG/skitched_20171001_202657.jpg" height="150px" /></td>
-            <td valign="middle" width="180">
-              <img width="178" src="https://image.ibb.co/nmu45b/skitched_20171001_174841.jpg">
-            </td>
-
-          </tr>
-        </tbody>
-      </table>
-      <tr>
+      <div class="col-md-6 p-2 item">
+        <div class="input">
+          <div id="capture" class="capture">
+            <div class="logo">
+              <!-- <img width="130" src="http://image.ibb.co/gjQ1j7/Logo_Mutual.png" alt="logo mutual"> -->
+              <%= image_tag  "logo.png" %>
+            </div>
+            <div class="contenido">
+              <p class="data-nombre" style="font-size:15px;color:#333333;font-weight:500;"><%= usuario.nombre %></p>
+              <p class="data-cargo" style="font-size:13px;color:#203747;"><%= usuario.cargo %></p>
+              <p class="data-numero" style="font-size:15px;color:#0066cc"><%= usuario.telefono %></p>
+              <p class="data-direccion" style="font-size:14px;color:#7a828d"><%= usuario.direccion %></p>
+              <a class="url" style="vertical-align:top;color:#005cb9;text-decoration:none;" href="http://www.mutualdeseguros.cl" title="visitanos" target="_blank">www.mutualdeseguros.cl</a>
+            </div>
+            <div class="somos">
+              <img src="http://image.ibb.co/caWDxS/Logo_Somos_Mutual.png">
+            </div>
+          </div>
+        </div>
         <div class="botonera">
           <%= link_to usuario, class: "see" do %>
             <i class="material-icons">visibility</i>
@@ -65,7 +57,7 @@
           <% end %>
         </div>
       </div>
-      <% end %>
+    <% end %>
   </div>
 
   <nav aria-label="Page navigation">

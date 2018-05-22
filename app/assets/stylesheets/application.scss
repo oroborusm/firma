@@ -35,7 +35,7 @@ p{
 pre{
   background: #f5f5f5;
 }
-.actions input[type="submit" i]{
+.actions input[type="submit"]{
   background: #70b026;
   border: 0;
   border-radius: 8px;
@@ -52,7 +52,7 @@ pre{
   position: absolute;
   right: 16px;
   text-align: center;
-  top: 30px;
+  top: 10px;
 }
 .botonera a{
   border-radius: 50%;
@@ -116,6 +116,36 @@ pre{
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   }
 }
+.capture{
+  div{
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .contenido{
+    padding: 5px;
+    width: 240px;
+  }
+  .logo{
+    border-right: 1px solid #bbbbbb;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    width: 160px;
+    img{
+      width: 100%;
+    }
+  }
+  .somos{
+    border-left: 1px solid #bbbbbb;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-top: 5px;
+    width: 190px;
+    img{
+      width: 100%;
+    }
+  }
+}
 .container{
   margin: 0 auto;
   max-width: 1375px;
@@ -133,24 +163,27 @@ pre{
   color: #2B3948 !important;
   font-size: 14px !important;
   font-weight: 300 !important;
-  margin: 0;
+  line-height: 12px;
+  margin: 0 0 10px 0;
 }
 .data-direccion{
   color: #2B3948 !important;
-  display: inline-block;
+  display: block;
   font-size: 12px !important;
   font-weight: 300 !important;
   line-height: 15px !important;
 }
 .data-nombre{
   color: #2B3948 !important;
-  font-size: 18px !important;
+  font-size: 15px !important;
   font-weight: 600 !important;
 }
 .data-numero{
   color: #005DB4 !important;
-  font-size: 14.5px !important;
-  font-weight: 400 !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 10px;
+  margin-bottom: 5px;
 }
 
 .input table{
@@ -233,9 +266,14 @@ pre{
     border-radius: 4px 0 0 4px;
   }
 }
+.separator{
+  border-left: 1px solid #c7c7c7;
+  max-height: 94px;
+}
 .url{
   color:#005DB4;
   font-size: 12px;
+  line-height: 10px;
   margin: 0;
   text-decoration:none;
   vertical-align:top;
